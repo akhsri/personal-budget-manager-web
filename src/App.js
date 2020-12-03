@@ -1,10 +1,13 @@
-import { AccountsList } from "./components/AccountsList";
+import { AccountsList } from "./components/CategoriesList";
+import { CategoriesList } from "./components/AccountsList";
+
 
 
 function App() {
   return (
-    <div>
+    <div className="container">
       <AccountsList />
+      <CategoriesList />
     </div>
   );
 }
