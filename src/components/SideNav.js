@@ -15,11 +15,9 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
+import { withRouter } from 'react-router-dom'
 
-
-import Home from "./Home"
+import Routes from '../Routes';
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -84,7 +82,8 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function MiniDrawer() {
+const SideNav = (props) => {
+    console.log("props: ", props)
     const classes = useStyles();
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
@@ -96,7 +95,7 @@ export default function MiniDrawer() {
     const handleDrawerClose = () => {
         setOpen(false);
     };
-
+    const { history } = props;
     return (
         <div className={classes.root}>
             <CssBaseline />
@@ -114,14 +113,14 @@ export default function MiniDrawer() {
                 }}
             >
                 <div className={classes.toolbar}>
-                    <IconButton onClick={open ? handleDrawerClose : handleDrawerOpen}>
+                    <MenuIcon onClick={open ? handleDrawerClose : handleDrawerOpen}>
                         {theme.direction === 'rtl' ? <ChevronLeftIcon /> : <ChevronLeftIcon />}
-                    </IconButton>
+                    </MenuIcon>
                 </div>
                 <Divider />
                 <List>
 
-                    <ListItem button>
+                    <ListItem button onClick={() => history.push('/')}>
                         <ListItemIcon>
                             <span class="material-icons">
                                 home
@@ -137,27 +136,29 @@ export default function MiniDrawer() {
                         </ListItemIcon>
                         <ListItemText primary="Stats" />
                     </ListItem>
-                    <ListItem button>
+                    <ListItem button onClick={() => history.push('/settings')}>
                         <ListItemIcon>
                             <span class="material-icons">
                                 settings
-                    </span>
+                            </span>
                         </ListItemIcon>
                         <ListItemText primary="Settings" />
                     </ListItem>
-                    <ListItem button>
+                    <ListItem button onClick={() => history.push('/profile')}>
                         <ListItemIcon>
                             <span class="material-icons">
                                 account_box
                             </span>
                         </ListItemIcon>
-                        <ListItemText primary="Home" />
+                        <ListItemText primary="Profile" />
                     </ListItem>
                 </List>
             </Drawer>
             <main className={classes.content}>
-                <Home />
+                <Routes />
             </main>
         </div>
     );
 }
+
+export default withRouter(SideNav);
