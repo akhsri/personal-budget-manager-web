@@ -1,6 +1,7 @@
 import { AccountsList } from "./components/CategoriesList";
 import { CategoriesList } from "./components/AccountsList";
 import Transactions from "./components/Transactions";
+import ExpenseByCategory from "./components/ExpenseByCategory";
 
 
 function App() {
@@ -13,6 +14,9 @@ function App() {
         </div>
         <div className="col-6">
           <Transactions />
+        </div>
+        <div className="col-3">
+          <ExpenseByCategory />
         </div>
       </div>
     </div>
