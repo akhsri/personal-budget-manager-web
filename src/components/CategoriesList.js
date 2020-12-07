@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const AccountsList = () => {
+const AccountsList = () => {
     return (
         <div>
             <h6>Accounts</h6>
@@ -17,3 +17,5 @@ export const AccountsList = () => {
         </div>
     )
 }
+
+export default AccountsList;

@@ -2,24 +2,16 @@ import { AccountsList } from "./components/CategoriesList";
 import { CategoriesList } from "./components/AccountsList";
 import Transactions from "./components/Transactions";
 import ExpenseByCategory from "./components/ExpenseByCategory";
+import { Fragment } from "react";
+import SideNav from "./components/SideNav";
+import Home from "./components/Home";
 
 
 function App() {
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-3">
-          <AccountsList />
-          <CategoriesList />
-        </div>
-        <div className="col-6">
-          <Transactions />
-        </div>
-        <div className="col-3">
-          <ExpenseByCategory />
-        </div>
-      </div>
-    </div>
+    <Fragment>
+      <SideNav />
+    </Fragment>
   );
 }
 
