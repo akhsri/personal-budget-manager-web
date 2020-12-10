@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import DatePicker from "./DatePicker"
 import TransactionsList from "./TransactionsList";
+import AddTransaction from "./AddTransaction";
 
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add'
@@ -24,9 +25,7 @@ class Transactions extends Component {
                         <h3>Daily Transactions</h3>
                     </span>
                     <span className="col-2">
-                        <Fab size="small" color="primary" aria-label="add">
-                            <AddIcon />
-                        </Fab>
+                        <AddTransaction />
                     </span>
 
                 </div>
