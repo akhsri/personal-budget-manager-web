@@ -80,6 +80,12 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
         padding: theme.spacing(3),
     },
+    navColor: {
+        color: 'black'
+    },
+    navBorder: {
+        borderRight: '2px solid black'
+    }
 }));
 
 const SideNav = (props) => {
@@ -96,6 +102,7 @@ const SideNav = (props) => {
         setOpen(false);
     };
     const { history } = props;
+    console.log("history: ", history)
     return (
         <div className={classes.root}>
             <CssBaseline />
@@ -120,33 +127,47 @@ const SideNav = (props) => {
                 <Divider />
                 <List>
 
-                    <ListItem button onClick={() => history.push('/')}>
+                    <ListItem
+                        button
+                        className={`py-4 mt-3 ${history.location.pathname === '/' ? clsx(classes.navBorder) : ''}`}
+                        onClick={() => history.push('/')}
+                    >
                         <ListItemIcon>
-                            <span class="material-icons">
+                            <span className={`material-icons pl-2 ${history.location.pathname === '/' ? clsx(classes.navColor) : ''}`}>
                                 home
                             </span>
                         </ListItemIcon>
                         <ListItemText primary="Home" />
                     </ListItem>
-                    <ListItem button>
+                    <ListItem
+                        button
+                        className={`py-4 ${history.location.pathname === '/stats' ? clsx(classes.navBorder) : ''}`}
+                        onClick={() => history.push('/stats')}
+                    >
                         <ListItemIcon>
-                            <span class="material-icons">
+                            <span className={`material-icons pl-2 ${history.location.pathname === '/stats' ? clsx(classes.navColor) : ''}`}>
                                 analytics
                     </span>
                         </ListItemIcon>
                         <ListItemText primary="Stats" />
                     </ListItem>
-                    <ListItem button onClick={() => history.push('/settings')}>
+                    <ListItem
+                        button
+                        className={`py-4 ${history.location.pathname === '/settings' ? clsx(classes.navBorder) : ''}`}
+                        onClick={() => history.push('/settings')}>
                         <ListItemIcon>
-                            <span class="material-icons">
+                            <span class={`material-icons pl-2 ${history.location.pathname === '/settings' ? clsx(classes.navColor) : ''}`}>
                                 settings
                             </span>
                         </ListItemIcon>
                         <ListItemText primary="Settings" />
                     </ListItem>
-                    <ListItem button onClick={() => history.push('/profile')}>
+                    <ListItem
+                        button
+                        className={`py-4 ${history.location.pathname === '/profile' ? clsx(classes.navBorder) : ''}`}
+                        onClick={() => history.push('/profile')}>
                         <ListItemIcon>
-                            <span class="material-icons">
+                            <span className={`material-icons pl-2 ${history.location.pathname === '/profile' ? clsx(classes.navColor) : ''}`}>
                                 account_box
                             </span>
                         </ListItemIcon>
