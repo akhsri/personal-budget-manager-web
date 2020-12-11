@@ -1,21 +1,21 @@
 import React from 'react'
 
-const AccountsList = () => {
+const CategoriesList = () => {
     return (
         <div>
-            <h6>Accounts</h6>
+            <h6>CATEGORIES</h6>
             <div>
                 <ul>
-                    <li><span>Automobile</span></li>
-                    <li><span>Food & Beverage</span></li>
-                    <li><span>Groceries</span></li>
-                    <li><span>Household</span></li>
-                    <li><span>Utilities</span></li>
-                    <li><span>+5 more</span></li>
+                    <li className="my-3"><span>Automobile</span></li>
+                    <li className="my-3"><span>Food & Beverage</span></li>
+                    <li className="my-3"><span>Groceries</span></li>
+                    <li className="my-3"><span>Household</span></li>
+                    <li className="my-3"><span>Utilities</span></li>
+                    <li className="my-3"><span>+5 more</span></li>
                 </ul>
             </div>
         </div>
     )
 }
 
-export default AccountsList;
+export default CategoriesList;
