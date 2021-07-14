@@ -9,7 +9,7 @@ class ExpenseByCategory extends Component {
     render() {
         return (
             <div>
-                <h5>Expenses By Category</h5>
+                <h5 className='my-3'>Expenses By Category</h5>
                 <div className="card mb-3">
                     <span className="pl-5">
                         <p className="mb-1">Food & Beverage</p>

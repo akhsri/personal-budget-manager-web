@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import AddIcon from '@material-ui/icons/Add';
 
 const CategoriesList = () => {
     return (
@@ -11,7 +12,10 @@ const CategoriesList = () => {
                     <li className="my-3"><span>Groceries</span></li>
                     <li className="my-3"><span>Household</span></li>
                     <li className="my-3"><span>Utilities</span></li>
-                    <li className="my-3"><span>+5 more</span></li>
+                    <li className="my-3">
+                        <span>
+
+                        </span></li>
                 </ul>
             </div>
         </div>
