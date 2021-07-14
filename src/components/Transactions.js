@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import DatePicker from "./DatePicker";
+import DatePicker from "../parts/DatePicker";
 import TransactionsList from "../parts/TransactionsList";
 import AddTransaction from "./AddTransaction";
 

@@ -1,5 +1,5 @@
-import { AccountsList } from "./components/CategoriesList";
-import { CategoriesList } from "./components/AccountsList";
+import { AccountsList } from "./parts/CategoriesList";
+import { CategoriesList } from "./parts/AccountsList";
 import Transactions from "./components/Transactions";
 import ExpenseByCategory from "./components/ExpenseByCategory";
 import { Fragment } from "react";

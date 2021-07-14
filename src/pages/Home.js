@@ -1,6 +1,6 @@
 import { Component } from "react";
-import AccountsList from "../components/AccountsList";
-import CategoriesList from "../components/CategoriesList";
+import AccountsList from "../parts/AccountsList";
+import CategoriesList from "../parts/CategoriesList";
 import Transactions from "../components/Transactions";
 import ExpenseByCategory from "../components/ExpenseByCategory";
 import MonthlyOverview from "../parts/MonthlyOverview";
