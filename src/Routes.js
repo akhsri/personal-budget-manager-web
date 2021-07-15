@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Signup from "./pages/Signup";
+import Signin from "./pages/Signin";
 import Settings from "./components/Settings";
 import Profile from "./components/Profile";
 
@@ -12,6 +13,7 @@ const Routes = () => {
       <Switch>
         <Route exact from="/" render={(props) => <Home />} />
         <Route exact from="/signup" render={(props) => <Signup />} />
+        <Route exact from="/signin" render={(props) => <Signin />} />
         <Route exact path="/settings" render={(props) => <Settings />} />
         <Route exact path="/profile" render={(props) => <Profile />} />
       </Switch>
