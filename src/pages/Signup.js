@@ -7,7 +7,7 @@ const Signup = () => {
   return (
     <div>
       <div className="row singup-page-container">
-        <div className="col-6 singup-form-col">
+        <div className="col-6 signup-form-col">
           <div className="signup-form-container">
             <div className="signup-form" style={{ margin: "0 auto" }}>
               <div className="signup-header mb-3">
