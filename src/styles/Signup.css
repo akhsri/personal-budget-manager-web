@@ -1,0 +1,26 @@
+.singup-page-container {
+  max-height: 100vh;
+  position: fixed;
+}
+
+.signup-form-container {
+  height: 100vh;
+  display: flex;
+  margin-top: 20%;
+}
+
+.signup-form-col {
+  max-height: 90%;
+}
+
+.signup-form {
+  margin: auto;
+}
+
+.signup-btn-container {
+  margin-top: 10px;
+}
+
+.signup-img-col {
+  max-height: 90%;
+}
