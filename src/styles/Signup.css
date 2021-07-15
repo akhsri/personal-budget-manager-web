@@ -1,6 +1,5 @@
 .singup-page-container {
   max-height: 100vh;
-  position: fixed;
 }
 
 .signup-form-container {
@@ -9,18 +8,32 @@
   margin-top: 20%;
 }
 
+.signup-header > label {
+  color: grey;
+  padding-right: 25%;
+}
+
 .signup-form-col {
   max-height: 90%;
 }
 
 .signup-form {
-  margin: auto;
+  margin: 0 auto;
 }
 
 .signup-btn-container {
   margin-top: 10px;
 }
 
+.signup-btn-container > button {
+  padding: 2% 43%;
+}
+
 .signup-img-col {
   max-height: 90%;
+}
+
+.alternate-signin > label {
+  color: darkgrey;
+  padding: 5% 20%;
 }
