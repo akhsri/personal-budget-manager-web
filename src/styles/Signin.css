@@ -1,0 +1,39 @@
+.signin-page-container {
+  max-height: 100vh;
+}
+
+.signin-form-container {
+  height: 100vh;
+  display: flex;
+  margin-top: 20%;
+}
+
+.signin-header > label {
+  color: grey;
+  padding-right: 25%;
+}
+
+.signin-form-col {
+  max-height: 90%;
+}
+
+.signin-form {
+  margin: 0 auto;
+}
+
+.signin-btn-container {
+  margin-top: 10px;
+}
+
+.signin-btn-container > button {
+  padding: 2% 44%;
+}
+
+.signin-img-col {
+  max-height: 90%;
+}
+
+.alternate-signin > label {
+  color: darkgrey;
+  padding: 5% 20%;
+}
