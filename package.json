@@ -21,7 +21,14 @@
     "react-scripts": "4.0.1",
     "styletron-engine-atomic": "^1.4.6",
     "styletron-react": "^5.2.7",
-    "web-vitals": "^0.2.4"
+    "web-vitals": "^0.2.4",
+    "redux": "^4.0.5",
+    "redux-form": "^8.3.6",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
+    "react-redux": "^7.2.1",
+    "react-redux-toastr": "^7.6.5",
+    "react-router-redux": "^4.0.8"
   },
   "scripts": {
     "start": "react-scripts start",
