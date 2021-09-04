@@ -1,62 +1,112 @@
-import React from "react";
+import React, { useState } from "react";
+import { signin } from "../actions/signinAction";
 import SignupPageImage from "../assets/signup.png";
+import * as signinActions from "../actions/signinAction";
+import { connect } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 import "../styles/Signin.css";
 
-const Signin = () => {
+const Signin = (props) => {
+  console.log("props: ", props);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [showEmailError, setshowEmailError] = useState(false);
+  const [showPasswordError, setshowPasswordError] = useState("");
+
+  const { signin } = props;
+  const history = useHistory();
+  console.log("history in signin: ", history);
+  const signIn = (event) => {
+    event.preventDefault();
+    const userCredentials = {
+      email: email,
+      password: password,
+    };
+    console.log("history in signin functnL ", history);
+    console.log("userCredentials: ", userCredentials);
+    signin(userCredentials, history);
+  };
   return (
     <div>
       <div>
-        <div className="row signin-page-container">
-          <div className="col-6 signin-form-col">
-            <div className="signin-form-container">
-              <div className="signin-form" style={{ margin: "0 auto" }}>
-                <div className="signin-header mb-3">
-                  <h3>Signin</h3>
-                  <label>
-                    Login with your data that you entered during your
-                    registration.
-                  </label>
-                </div>
-                <div className="mb-3">
-                  <span>
-                    <label> Your e-mail</label>
-                  </span>
-                  <span>
-                    <input className="form-control" />
-                  </span>
-                </div>
-                <div>
-                  <span>
-                    <label> Password</label>
-                  </span>
-                  <span>
-                    <input className="form-control" />
-                  </span>
-                </div>
-                <div className="signin-btn-container mt-3">
-                  <button className="btn btn-primary" type="button">
-                    Signin
-                  </button>
-                </div>
-                <div className="alternate-signin">
-                  <label>
-                    Don't have an account?
-                    <strong>Sign up</strong>
-                  </label>
+        <form
+          onSubmit={(event) => {
+            console.log("event: ", event);
+            signIn(event);
+          }}
+        >
+          <div className="row signin-page-container">
+            <div className="col-6 signin-form-col">
+              <div className="signin-form-container">
+                <div className="signin-form" style={{ margin: "0 auto" }}>
+                  <div className="signin-header mb-3">
+                    <h3>Signin</h3>
+                    <label>
+                      Login with your data that you entered during your
+                      registration.
+                    </label>
+                  </div>
+                  <div className="mb-3">
+                    <span>
+                      <label> Your e-mail</label>
+                    </span>
+                    <span>
+                      <input
+                        className="form-control"
+                        type="email"
+                        placeholder="email@domain.com"
+                        value={email}
+                        onChange={(event) => setEmail(event.target.value)}
+                      />
+                    </span>
+                  </div>
+                  <div>
+                    <span>
+                      <label> Password</label>
+                    </span>
+                    <span>
+                      <input
+                        type="password"
+                        className="form-control"
+                        placeholder="Password"
+                        value={password}
+                        onChange={(event) => setPassword(event.target.value)}
+                      />
+                    </span>
+                  </div>
+                  <div className="signin-btn-container mt-3">
+                    <button className="btn btn-primary" type="submit">
+                      Signin
+                    </button>
+                  </div>
+                  <div className="alternate-signin">
+                    <label>
+                      Don't have an account?
+                      <strong>Sign up</strong>
+                    </label>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div className="col-6 singup-img-col">
-            <div className="signin-img-container">
-              <img src={SignupPageImage} width="100%" height="100%" />
+            <div className="col-6 singup-img-col">
+              <div className="signin-img-container">
+                <img src={SignupPageImage} width="100%" height="100%" />
+              </div>
             </div>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );
 };
 
-export default Signin;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    signin: (userCredentials, history) => {
+      dispatch(signinActions.signin(userCredentials, history));
+    },
+  };
+};
+
+export default connect(null, mapDispatchToProps)(Signin);
