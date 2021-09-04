@@ -30,5 +30,4 @@ export function signup(data) {
         console.log("err: ", error);
       });
   };
-  console.log("URL: ", URL);
 }
