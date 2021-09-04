@@ -5,12 +5,16 @@ import LandingPage from "./pages/LandingPage";
 import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import Signin from "./pages/Signin";
+import Navbar from "./components/Navbar";
 
 const Routes = () => {
+  const token = localStorage.getItem("token");
+  const isUserLoggedIn = !!token;
   return (
     <div>
+      {isUserLoggedIn ? null : <Navbar />}
       <Switch>
-        <Route exact path="/landing" render={(props) => <LandingPage />} />
+        <Route exact path="/" render={(props) => <LandingPage />} />
         <Route exact from="/signup" render={(props) => <Signup />} />
         <Route exact from="/signin" render={(props) => <Signin />} />
       </Switch>
