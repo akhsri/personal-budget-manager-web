@@ -13,7 +13,7 @@ const Routes = () => {
     <div>
       <Switch>
         <Route exact path="/landing" render={(props) => <LandingPage />} />
-        <Route exact from="/" render={(props) => <Home />} />
+        <Route exact from="/app" render={(props) => <Home />} />
         <Route exact from="/signup" render={(props) => <Signup />} />
         <Route exact from="/signin" render={(props) => <Signin />} />
         <Route exact path="/settings" render={(props) => <Settings />} />
