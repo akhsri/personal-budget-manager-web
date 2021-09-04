@@ -5,19 +5,19 @@ import ExpenseByCategory from "./components/ExpenseByCategory";
 import Navbar from "./components/Navbar";
 import { Fragment } from "react";
 import UnauthorisedRoutes from "./UnauthorisedRoutes";
+import AuthorisedRoutes from "./AuthorisedRoutes";
 import SideNav from "./components/SideNav";
+import { Switch, Route } from "react-router-dom";
 
 function App() {
-  const token = localStorage.getItem("token");
-  const isUserLoggedIn = !!token;
   return (
     <Fragment>
       <div>
-        <Navbar />
-        <UnauthorisedRoutes />
+        <Switch>
+          <Route exact from="/app" render={(props) => <AuthorisedRoutes />} />
+          <Route path="/" render={(props) => <UnauthorisedRoutes />} />
+        </Switch>
       </div>
-
-      {isUserLoggedIn && <SideNav />}
     </Fragment>
   );
 }
