@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "@material-ui/core/Button";
 import AddIcon from "@material-ui/icons/Add";
 import { Fade, Modal } from "@material-ui/core";
@@ -21,6 +21,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const AccountsList = (props) => {
+  const { addBankAccount, getBankAccounts, bankAccountsList } = props;
+
+  useEffect(() => {
+    getBankAccounts();
+  }, []);
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const [bankName, setBankName] = useState("");
@@ -33,24 +38,23 @@ const AccountsList = (props) => {
   const handleClose = () => {
     setOpen(false);
   };
-
-  const { addBankAccount } = props;
-
+  console.log("bankAccountsList: ", bankAccountsList);
   return (
     <div>
       <h6>ACCOUNTS</h6>
       <div>
         <ul>
-          <li className="my-3">
-            <span>Citi Bank Int. Ltd</span>
-          </li>
-          <li className="my-3">
-            <span>HSBC Ltd.</span>
-          </li>
-          <li className="my-3">
-            <span>Standard Chartered</span>
-          </li>
-
+          {bankAccountsList ? (
+            bankAccountsList.map((bankAccount) => {
+              return (
+                <li key={bankAccount.id} className="my-3">
+                  <span>{bankAccount.accountName}</span>
+                </li>
+              );
+            })
+          ) : (
+            <h6>No account added yet</h6>
+          )}
           <Button
             variant="contained"
             color="primary"
@@ -117,6 +121,12 @@ const AccountsList = (props) => {
   );
 };
 
+const mapStateToProps = (state) => {
+  return {
+    bankAccountsList: state.bankAccounts.bankAccountsList,
+  };
+};
+
 const mapDispatchToProps = (dispatch) => {
   return {
     addBankAccount: (bankAccountDetails, handleClose) => {
@@ -124,7 +134,10 @@ const mapDispatchToProps = (dispatch) => {
         BankAccountActions.createBankAccount(bankAccountDetails, handleClose)
       );
     },
+    getBankAccounts: () => {
+      dispatch(BankAccountActions.getBankAccounts());
+    },
   };
 };
 
-export default connect(null, mapDispatchToProps)(AccountsList);
+export default connect(mapStateToProps, mapDispatchToProps)(AccountsList);

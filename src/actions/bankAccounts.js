@@ -10,6 +10,13 @@ export function addBankAccount(data) {
   };
 }
 
+export function getBankAccountsList(bankAccountsList) {
+  return {
+    type: ACTION_TYPES.GET_BANK_ACCOUNTS_LIST,
+    payload: bankAccountsList,
+  };
+}
+
 export function createBankAccount(data, handleClose) {
   console.log("createBankAccount called");
   const URL = API.BASE_PATH + API.CREATE_BANK_ACCOUNT;
@@ -26,5 +33,27 @@ export function createBankAccount(data, handleClose) {
         }
       }
     });
+  };
+}
+
+export function getBankAccounts() {
+  const URL = API.BASE_PATH + API.GET_BANK_ACCOUNTS;
+  const token = localStorage.getItem("token");
+  const config = {
+    headers: { Authorization: `Bearer ${token}` },
+  };
+  return function (dispatch) {
+    return axios
+      .get(URL, config)
+      .then((response) => {
+        if (response.status === 200) {
+          dispatch(getBankAccountsList(response.data));
+        }
+      })
+      .catch((error) => {
+        if (error) {
+          console.error("error res getBankAcc: ", error);
+        }
+      });
   };
 }
