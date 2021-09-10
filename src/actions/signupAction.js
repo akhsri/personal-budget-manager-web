@@ -13,14 +13,12 @@ export function updateSignupStatus(status) {
 }
 
 export function signup(data) {
-  console.log("data: ", data);
   const URL = API.BASE_PATH + API.USER_SIGNUP;
   return function (dispatch) {
     return axios
       .post(URL, data)
       .then((response) => {
         if (response) {
-          console.log("response: ", response);
           if (response.status === 201) {
             dispatch(updateSignupStatus(true));
           }

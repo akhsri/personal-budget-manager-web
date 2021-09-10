@@ -18,23 +18,18 @@ export function authApiError(errorData) {
 }
 
 export const signin = (data, history) => {
-  console.log("history: ", history);
-  console.log("signin called");
   const URL = API.BASE_PATH + API.USER_SIGNIN;
-  console.log("URL: ", URL);
   return function (dispatch) {
     return axios
       .post(URL, data)
       .then((response) => {
         if (response) {
-          console.log("response: ", response);
           if (response.status === 201) {
             dispatch(updateAuthStatus(response.data.accessToken, history));
           }
         }
       })
       .catch((error) => {
-        console.log("err: ", error.response);
         if (error.response) {
           dispatch(authApiError(error.response.data));
         }
