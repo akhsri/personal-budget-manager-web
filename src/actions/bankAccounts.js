@@ -17,8 +17,14 @@ export function getBankAccountsList(bankAccountsList) {
   };
 }
 
+export function updateBankAccountsList(bankAccount) {
+  return {
+    type: ACTION_TYPES.UPDATE_BANK_ACCOUNTS_LIST,
+    payload: bankAccount,
+  };
+}
+
 export function createBankAccount(data, handleClose) {
-  console.log("createBankAccount called");
   const URL = API.BASE_PATH + API.CREATE_BANK_ACCOUNT;
   const token = localStorage.getItem("token");
   const config = {
@@ -28,7 +34,7 @@ export function createBankAccount(data, handleClose) {
     return axios.post(URL, data, config).then((response) => {
       if (response) {
         if (response.status === 201) {
-          dispatch(addBankAccount());
+          dispatch(updateBankAccountsList(response.data));
           handleClose();
         }
       }

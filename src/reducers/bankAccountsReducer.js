@@ -10,6 +10,13 @@ export default function bankAccountsReducer(
         ...state,
         bankAccountsList: action.payload,
       };
+
+    case "UPDATE_BANK_ACCOUNTS_LIST":
+      state.bankAccountsList.push(action.payload);
+      return {
+        ...state,
+        bankAccountsList: state.bankAccountsList,
+      };
     default:
       return state;
   }
