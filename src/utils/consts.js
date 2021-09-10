@@ -3,6 +3,7 @@ export const API = {
   USER_SIGNIN: "/auth/signin",
   USER_SIGNUP: "/auth/signup",
   CREATE_BANK_ACCOUNT: "/bank-accounts/create",
+  GET_BANK_ACCOUNTS: "/bank-accounts",
 };
 
 export const ACTION_TYPES = {
@@ -10,4 +11,5 @@ export const ACTION_TYPES = {
   UPDATE_AUTH_STATUS: "UPDATE_AUTH_STATUS",
   AUTH_API_ERROR: "AUTH_API_ERROR",
   ADD_BANK_ACCOUNT: "ADD_BANK_ACCOUNT",
+  GET_BANK_ACCOUNTS_LIST: "GET_BANK_ACCOUNTS_LIST",
 };
