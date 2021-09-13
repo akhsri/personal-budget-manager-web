@@ -5,6 +5,7 @@ export const API = {
   CREATE_BANK_ACCOUNT: "/bank-accounts/create",
   GET_BANK_ACCOUNTS: "/bank-accounts",
   CREATE_CATEGORY: "/category/create",
+  GET_CATEGORIES: "/category",
 };
 
 export const ACTION_TYPES = {
