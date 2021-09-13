@@ -40,3 +40,25 @@ export function createCategory(categoryDetails, handleClose) {
     });
   };
 }
+
+export function getCategories() {
+  const URL = API.BASE_PATH + API.GET_CATEGORIES;
+  const token = localStorage.getItem("token");
+  const config = {
+    headers: { Authorization: `Bearer ${token}` },
+  };
+  return function (dispatch) {
+    return axios
+      .get(URL, config)
+      .then((response) => {
+        if (response.status === 200) {
+          dispatch(getCategoriesList(response.data));
+        }
+      })
+      .catch((error) => {
+        if (error) {
+          console.error("error res getBankAcc: ", error);
+        }
+      });
+  };
+}
