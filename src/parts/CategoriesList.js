@@ -21,7 +21,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const CategoriesList = (props) => {
-  const { categoriesList, addCategory } = props;
+  const { categoriesList, addCategory, getCategories } = props;
+
+  useEffect(() => {
+    getCategories();
+  }, []);
 
   const classes = useStyles();
   const [open, setOpen] = useState(false);
@@ -118,6 +122,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     addCategory: (categoryDetails, handleClose) => {
       dispatch(CategoriesActions.createCategory(categoryDetails, handleClose));
+    },
+    getCategories: () => {
+      dispatch(CategoriesActions.getCategories());
     },
   };
 };
