@@ -6,10 +6,12 @@ import signupReducer from "./signupReducer";
 import signinReducer from "./signinReducer";
 import bankAccountsReducer from "./bankAccountsReducer";
 import categoriesReducer from "./categoriesReducer";
+import budgetReducer from "./budgetReducer";
 
 export default combineReducers({
   userSignup: signupReducer,
   userSignin: signinReducer,
   bankAccounts: bankAccountsReducer,
   categories: categoriesReducer,
+  budgets: budgetReducer,
 });

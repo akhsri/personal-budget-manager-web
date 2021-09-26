@@ -33,7 +33,7 @@ class MonthlyOverview extends Component {
           </div>
           <div>
             <CreateBudgetModal
-              handleCreateBudgetModal={this.handleCreateBudgetModal}
+              handleOpenCloseBudgetModal={this.handleCreateBudgetModal}
               isCreateBudgetModalOpen={this.state.isCreateBudgetModalOpen}
             />
           </div>

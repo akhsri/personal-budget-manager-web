@@ -9,11 +9,9 @@ import {
 } from "@material-ui/pickers";
 
 export default function MaterialUIPickers(props) {
-  const { datePickerType } = props;
+  const { datePickerType, setBudgetDate } = props;
   // The first commit of Material-UI
-  const [selectedDate, setSelectedDate] = React.useState(
-    new Date("2014-08-18T21:11:54")
-  );
+  const [selectedDate, setSelectedDate] = React.useState(new Date());
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
@@ -38,7 +36,9 @@ export default function MaterialUIPickers(props) {
             : "Select Transaction Date"
         }
         value={selectedDate}
-        onChange={handleDateChange}
+        onChange={(date) => {
+          setBudgetDate(date);
+        }}
         KeyboardButtonProps={{
           "aria-label": "change date",
         }}
