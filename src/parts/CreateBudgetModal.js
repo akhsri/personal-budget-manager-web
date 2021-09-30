@@ -117,7 +117,7 @@ const CreateBudgetModal = (props) => {
               </TextField>
               <DatePicker
                 datePickerType="YearMonthPicker"
-                setBudgetDate={setBudgetDate}
+                setDate={setBudgetDate}
               />
             </div>
             <div>

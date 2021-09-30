@@ -9,7 +9,7 @@ import {
 } from "@material-ui/pickers";
 
 export default function MaterialUIPickers(props) {
-  const { datePickerType, setBudgetDate } = props;
+  const { datePickerType, setDate } = props;
   // The first commit of Material-UI
   const [selectedDate, setSelectedDate] = React.useState(new Date());
 
@@ -27,6 +27,7 @@ export default function MaterialUIPickers(props) {
             : ["year", "month", "date"]
         }
         variant="inline"
+        inputVariant="outlined"
         format="MM/dd/yyyy"
         margin="normal"
         id="date-picker-inline"
@@ -37,12 +38,12 @@ export default function MaterialUIPickers(props) {
         }
         value={selectedDate}
         onChange={(date) => {
-          setBudgetDate(date);
+          setDate(date);
         }}
         KeyboardButtonProps={{
           "aria-label": "change date",
         }}
-        style={{ marginRight: "0px" }}
+        style={{ margin: "0px", maxWidth: "100%" }}
       />
     </MuiPickersUtilsProvider>
   );
