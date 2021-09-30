@@ -5,6 +5,7 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
+
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useTheme } from "@material-ui/core/styles";
 
@@ -12,6 +13,7 @@ import Fab from "@material-ui/core/Fab";
 import AddIcon from "@material-ui/icons/Add";
 
 import TransactionStepper from "../parts/TransactionStepper";
+import AddTransactionModal from "../parts/AddTransactionModal";
 
 export default function ResponsiveDialog() {
   const [open, setOpen] = React.useState(false);
@@ -40,30 +42,12 @@ export default function ResponsiveDialog() {
                 <Button variant="outlined" color="primary" onClick={handleClickOpen}>
                 Open responsive dialog
             </Button>
-            */}
-      <Dialog
-        fullWidth="lg"
-        fullScreen={fullScreen}
+        */}
+      <AddTransactionModal
+        handleClickOpen={handleClickOpen}
+        handleClose={handleClose}
         open={open}
-        onClose={handleClose}
-        aria-labelledby="responsive-dialog-title"
-      >
-        <DialogTitle id="responsive-dialog-title">
-          {"Add transaction"}
-        </DialogTitle>
-        <DialogContent>
-          <TransactionStepper />
-          <DialogContentText></DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button autoFocus onClick={handleClose} color="primary">
-            Disagree
-          </Button>
-          <Button onClick={handleClose} color="primary" autoFocus>
-            Agree
-          </Button>
-        </DialogActions>
-      </Dialog>
+      />
     </div>
   );
 }
