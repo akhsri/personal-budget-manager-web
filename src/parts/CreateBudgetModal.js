@@ -62,7 +62,7 @@ const CreateBudgetModal = (props) => {
     <div>
       <Modal
         open={isCreateBudgetModalOpen}
-        onClose={handleCreateBudgetModal}
+        onClose={handleOpenCloseBudgetModal}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
