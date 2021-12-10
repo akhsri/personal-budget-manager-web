@@ -2,9 +2,11 @@ import React, { Component } from "react";
 import DatePicker from "../parts/DatePicker";
 import TransactionsList from "../parts/TransactionsList";
 import AddTransaction from "./AddTransaction";
-
-import Fab from "@material-ui/core/Fab";
-import AddIcon from "@material-ui/icons/Add";
+import TextField from "@mui/material/TextField";
+import Autocomplete from "@mui/material/Autocomplete";
+import IconButton from "@mui/material/IconButton";
+import InputAdornment from "@mui/material/InputAdornment";
+import SearchIcon from "@mui/icons-material/Search";
 
 class Transactions extends Component {
   constructor(props) {
@@ -29,10 +31,29 @@ class Transactions extends Component {
           </span>
         </div>
         <div>
-          <input style={{ width: "100%" }} placeholder="Search" />
-        </div>
-        <div>
-          <DatePicker />
+          <Autocomplete
+            freeSolo
+            id="free-solo-2-demo"
+            disableClearable
+            options={[].map((option) => option.title)}
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                label="Search transactions"
+                InputProps={{
+                  ...params.InputProps,
+                  type: "search",
+                  endAdornment: (
+                    <InputAdornment>
+                      <IconButton>
+                        <SearchIcon />
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                }}
+              />
+            )}
+          />
         </div>
         <div>
           <TransactionsList />

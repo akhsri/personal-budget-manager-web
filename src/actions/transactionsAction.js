@@ -58,6 +58,7 @@ export function createMoneyTransaction(
 }
 
 export function getMoneyTransactions() {
+  console.log("getMoneyTransactions called")
   const URL = API.BASE_PATH + API.GET_MONEY_TRANSACTION_LIST;
   const token = localStorage.getItem("token");
   const config = {
@@ -67,7 +68,9 @@ export function getMoneyTransactions() {
     return axios
       .get(URL, config)
       .then((response) => {
+        console.log("response before if")
         if (response.status === 200) {
+          console.log("response transactions: ", response)
           dispatch(getMoneyTransactionList(response.data));
         }
       })

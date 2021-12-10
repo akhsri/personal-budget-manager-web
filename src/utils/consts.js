@@ -8,6 +8,8 @@ export const API = {
   GET_CATEGORIES: "/category",
   CREATE_BUDGET: "/budget/create",
   CREATE_MONEY_TRANSACTION: "/money-transaction/create",
+  GET_MONEY_TRANSACTION_LIST: "/money-transaction"
+
 };
 
 export const ACTION_TYPES = {
