@@ -8,17 +8,30 @@ import MonthlyOverview from "../parts/MonthlyOverview";
 class Home extends Component {
   render() {
     return (
-      <div className="row">
-        <div className="col-3">
-          <AccountsList />
-          <CategoriesList />
-        </div>
-        <div className="col-6">
-          <Transactions />
-        </div>
-        <div className="col-3">
-          <MonthlyOverview />
-          <ExpenseByCategory />
+      <div className="p-5">
+        <div className="row">
+          <div className="col-3">
+            <AccountsList />
+            <CategoriesList />
+          </div>
+          <div
+            className="col-6"
+            style={{
+              backgroundColor: "white",
+              minHeight: "100vh",
+            }}
+          >
+            <Transactions />
+          </div>
+          <div
+            className="col-3"
+            style={{
+              backgroundColor: "white",
+            }}
+          >
+            <MonthlyOverview />
+            <ExpenseByCategory />
+          </div>
         </div>
       </div>
     );
