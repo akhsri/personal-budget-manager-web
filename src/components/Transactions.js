@@ -21,7 +21,7 @@ class Transactions extends Component {
   };
   render() {
     return (
-      <div>
+      <div className="p-3">
         <div className="row">
           <span className="col-10">
             <h3>Daily Transactions</h3>

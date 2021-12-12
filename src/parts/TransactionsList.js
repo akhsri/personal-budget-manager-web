@@ -54,7 +54,6 @@ const TransactionsList = (props) => {
   return (
     <div className={classes.root} style={{ minHeight: "100%" }}>
       <div className={classes.demo} style={{ minHeight: "100%" }}>
-        <Paper sx={{ minHeight: "100vh" }}>
           <List dense={dense} sx={{ minHeight: "100%" }}>
             {moneyTransactionList ? (
               moneyTransactionList.map((transaction) => {
@@ -86,7 +85,6 @@ const TransactionsList = (props) => {
               <h3>You don't have any transactions</h3>
             )}
           </List>
-        </Paper>
       </div>
     </div>
   );

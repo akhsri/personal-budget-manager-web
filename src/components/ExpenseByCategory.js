@@ -25,7 +25,13 @@ class ExpenseByCategory extends Component {
     return (
       <div>
         <h5 className="my-3">Expenses By Category</h5>
-        <div className="card mb-3">
+        <div className="card mb-3" 
+          style={{
+            backgroundColor: "#f2f4ff",
+            opacity: "1",
+            borderColor: "white"
+          }}
+        >
           <div className="d-flex flex-row py-3">
             <span
               style={{

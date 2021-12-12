@@ -44,9 +44,12 @@ class MonthlyOverview extends Component {
           <div
             className="card py-5 px-3"
             style={{
-              border: "1px solid grey",
+              border: "1px solid white",
               borderRadius: "15px",
               marginBottom: "10%",
+              backgroundColor: "#36096d",
+              backgroundImage: "linear-gradient(to top right, #36096d 0%, #37d5d6 74%)",
+              color: "white"
             }}
             onClick={this.handleCreateBudgetModal}
           >
