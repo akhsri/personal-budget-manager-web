@@ -14,11 +14,17 @@ export default function bankAccountsReducer(
 
     case "UPDATE_MONEY_TRANSACTION_LIST":
       state.moneyTransactionList.push(action.payload);
-      console.log("state.moneyTransactionList: ", state.moneyTransactionList);
+      console.log("updated moneyTransactionList: ", state.moneyTransactionList);
       return {
         ...state,
         moneyTransactionList: state.moneyTransactionList,
       };
+
+    case "GET_MONTHLY_OVERVIEW":
+      return{
+        ...state,
+        monthlyOverview: action.payload
+      }  
     default:
       return state;
   }

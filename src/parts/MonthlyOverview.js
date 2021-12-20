@@ -2,14 +2,19 @@ import React, { Component, Fragment } from "react";
 import { Bar } from "react-chartjs-2";
 
 import CreateBudgetModal from "./CreateBudgetModal";
+import * as TransactionActions from "../actions/transactionsAction";
+import { connect } from "react-redux";
 
 class MonthlyOverview extends Component {
   constructor(props) {
     super(props);
+    console.log("props in constructor: ", props);
     this.state = {
       isCreateBudgetModalOpen: false,
+      monthlyOverview: props.monthlyOverview
     };
   }
+
 
   handleCreateBudgetModal = () => {
     console.log("handleCreateBudgetModal called");
@@ -19,6 +24,11 @@ class MonthlyOverview extends Component {
   };
 
   render() {
+    const { monthlyOverview } = this.props;
+    console.log("monthlyOverview: ", monthlyOverview);
+    // const { totalMonthlyExpense, totalMonthlyIncome, expensesByCategory } =
+    //   monthlyOverview;
+    // const netIE = Math.abs(totalMonthlyExpense - totalMonthlyIncome);
     const data = {
       datasets: [
         {
@@ -48,8 +58,9 @@ class MonthlyOverview extends Component {
               borderRadius: "15px",
               marginBottom: "10%",
               backgroundColor: "#36096d",
-              backgroundImage: "linear-gradient(to top right, #36096d 0%, #37d5d6 74%)",
-              color: "white"
+              backgroundImage:
+                "linear-gradient(to top right, #36096d 0%, #37d5d6 74%)",
+              color: "white",
             }}
             onClick={this.handleCreateBudgetModal}
           >
@@ -66,27 +77,31 @@ class MonthlyOverview extends Component {
           </div>
           <div className="row">
             <div className="col-12">
-              <div className="card p-3">
-                <div className="d-flex flex-row justify-content-around">
-                  <div className="flex-column">
-                    <div>Income</div>
-                    <div>23224</div>
+              {
+                monthlyOverview && (
+                  <div className="card p-3">
+                  <div className="d-flex flex-row justify-content-around">
+                    <div className="flex-column">
+                      <div>Income</div>
+                      <div>{monthlyOverview.totalMonthlyIncome}</div>
+                    </div>
+                    <div className="flex-column">
+                      <div>Expense</div>
+                      <div>{monthlyOverview.totalMonthlyExpense}</div>
+                    </div>
                   </div>
-                  <div className="flex-column">
-                    <div>Expense</div>
-                    <div>9329</div>
+                  <div className="dropdown-divider mx-3"></div>
+                  <div className="d-flex flex-row justify-content-around">
+                    <div className="flex-column">
+                      <div>I&E</div>
+                    </div>
+                    <div className="flex-column">
+                      {/* <div>{totalMonthlyIncome > totalMonthlyIncome ? `+${netIE}` : `-${netIE}`}</div> */}
+                    </div>
                   </div>
                 </div>
-                <div className="dropdown-divider mx-3"></div>
-                <div className="d-flex flex-row justify-content-around">
-                  <div className="flex-column">
-                    <div>I&E</div>
-                  </div>
-                  <div className="flex-column">
-                    <div>+2121</div>
-                  </div>
-                </div>
-              </div>
+                )
+              }
             </div>
           </div>
         </div>
@@ -94,5 +109,7 @@ class MonthlyOverview extends Component {
     );
   }
 }
+
+
 
 export default MonthlyOverview;

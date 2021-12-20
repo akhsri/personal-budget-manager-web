@@ -42,15 +42,21 @@ function generate(element) {
 }
 
 const TransactionsList = (props) => {
+
   const classes = useStyles();
   const [dense, setDense] = useState(false);
   const [secondary, setSecondary] = useState(true);
-
+  const [transactionsList, setTransactionsList] = useState([]);
+ 
   const { moneyTransactionList, getMoneyTransactions } = props;
-
+  
+  console.log("changedList: ", moneyTransactionList)
   useEffect(() => {
     getMoneyTransactions();
-  }, [moneyTransactionList]);
+    if(moneyTransactionList){
+      setTransactionsList(moneyTransactionList)
+    }
+  }, [ getMoneyTransactions, moneyTransactionList.length]);
   return (
     <div className={classes.root} style={{ minHeight: "100%" }}>
       <div className={classes.demo} style={{ minHeight: "100%" }}>
@@ -58,7 +64,7 @@ const TransactionsList = (props) => {
             {moneyTransactionList ? (
               moneyTransactionList.map((transaction) => {
                 return (
-                  <Fragment>
+                  <Fragment key={transaction.id}>
                     <ListItem>
                       <ListItemAvatar>
                         <Avatar>

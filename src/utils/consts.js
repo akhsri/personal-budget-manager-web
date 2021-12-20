@@ -8,7 +8,8 @@ export const API = {
   GET_CATEGORIES: "/category",
   CREATE_BUDGET: "/budget/create",
   CREATE_MONEY_TRANSACTION: "/money-transaction/create",
-  GET_MONEY_TRANSACTION_LIST: "/money-transaction"
+  GET_MONEY_TRANSACTION_LIST: "/money-transaction",
+  GET_MONTHLY_OVERVIEW: "/money-transaction/monthly-overview"
 
 };
 
@@ -28,4 +29,5 @@ export const ACTION_TYPES = {
   ADD_MONEY_TRANSACTION: "ADD_MONEY_TRANSACTION",
   GET_MONEY_TRANSACTION_LIST: "GET_MONEY_TRANSACTION_LIST",
   UPDATE_MONEY_TRANSACTION_LIST: "UPDATE_MONEY_TRANSACTION_LIST",
+  GET_MONTHLY_OVERVIEW: "GET_MONTHLY_OVERVIEW"
 };

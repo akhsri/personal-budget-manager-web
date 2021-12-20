@@ -1,17 +1,23 @@
 import React, { Component } from "react";
 import { Doughnut } from "react-chartjs-2";
+import * as TransactionActions from "../actions/transactionsAction";
+import { connect } from "react-redux";
 class ExpenseByCategory extends Component {
   constructor(props) {
+    console.log("props in expensesByCat ", props);
     super(props);
   }
 
   render() {
+    const { monthlyOverview } = this.props;
+    console.log("monthlyOverview: ", monthlyOverview);
+
     const data = {
-      labels: ["Income", "Expense"],
+      labels: ["Used", "Unused"],
       datasets: [
         {
           label: "My First Dataset",
-          data: [80, 20],
+          data: [3000, 24276],
           backgroundColor: ["orange", "lightorange"],
           hoverOffset: 1,
         },
@@ -25,11 +31,26 @@ class ExpenseByCategory extends Component {
     return (
       <div>
         <h5 className="my-3">Expenses By Category</h5>
-        <div className="card mb-3" 
+
+        <div>
+          {monthlyOverview &&
+            monthlyOverview.expensesByCategory.map((expense) => {
+              const {
+                budgetPercentageLeft,
+                budgetPercentageUsed,
+                categoryBudgetAmountforCurrentMonth,
+                categoryId,
+                categoryName,
+                totalExpense,
+                totalIncome,
+              } = expense;
+              return(
+                <div
+          className="card mb-3"
           style={{
             backgroundColor: "#f2f4ff",
             opacity: "1",
-            borderColor: "white"
+            borderColor: "white",
           }}
         >
           <div className="d-flex flex-row py-3">
@@ -39,57 +60,37 @@ class ExpenseByCategory extends Component {
                 maxWidth: "100px",
               }}
             >
-              <Doughnut data={data} options={options} />
+              <Doughnut data={
+                {
+                  labels: ["Used", "Left"],
+                  datasets: [
+                    {
+                      label: "My First Dataset",
+                      data: [`${budgetPercentageUsed}`, `${budgetPercentageLeft}`],
+                      backgroundColor: ["orange", "lightorange"],
+                      hoverOffset: 1,
+                    },
+                  ]
+                }
+              } options={options} />
             </span>
             <span className="">
-              <p className="mb-1">Food & Beverage</p>
-              <h6>$120.43</h6>
+              <p className="mb-1">{categoryName}</p>
+              <h6>${totalExpense}</h6>
             </span>
             <span className="pl-5">
-              <p>18%</p>
+              <p>{budgetPercentageUsed}%</p>
             </span>
           </div>
         </div>
-        <div className="card mb-3">
-          <div className="d-flex flex-row py-3">
-            <span
-              style={{
-                maxHeight: "50px",
-                maxWidth: "100px",
-              }}
-            >
-              <Doughnut data={data} options={options} />
-            </span>
-            <span className="">
-              <p className="mb-1">Food & Beverage</p>
-              <h6>$120.43</h6>
-            </span>
-            <span className="pl-5">
-              <p>18%</p>
-            </span>
-          </div>
+              );
+            })}
         </div>
-        <div className="card mb-3">
-          <div className="d-flex flex-row py-3">
-            <span
-              style={{
-                maxHeight: "50px",
-                maxWidth: "100px",
-              }}
-            >
-              <Doughnut data={data} options={options} />
-            </span>
-            <span className="">
-              <p className="mb-1">Food & Beverage</p>
-              <h6>$120.43</h6>
-            </span>
-            <span className="pl-5">
-              <p>18%</p>
-            </span>
-          </div>
-        </div>
+        
+        
       </div>
     );
   }
 }
+
 export default ExpenseByCategory;

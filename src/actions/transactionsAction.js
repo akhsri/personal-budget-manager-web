@@ -24,6 +24,13 @@ export function updateMoneyTransactionList(moneyTransaction) {
   };
 }
 
+export function getMonthlyOverview(monthlyOverview){
+  return{
+    type: ACTION_TYPES.GET_MONTHLY_OVERVIEW,
+    payload: monthlyOverview,
+  }
+}
+
 export function createMoneyTransaction(
   data,
   handleCreateMoneyTransactionModel
@@ -80,4 +87,23 @@ export function getMoneyTransactions() {
         }
       });
   };
+}
+
+export function fetchMonthlyOverview(){
+  console.log("fetchMonthlyOverview called ")
+  const URL = API.BASE_PATH + API.GET_MONTHLY_OVERVIEW;
+  const token = localStorage.getItem("token");
+  const config = {
+    headers: { Authorization: `Bearer ${token}` },
+  };
+  return function(dispatch){
+    return axios
+              .get(URL, config)
+              .then((response) => {
+                if (response.status === 200) {
+                  console.log("monthlyOverview in fetchOverview: ", response)
+                  dispatch(getMonthlyOverview(response.data))
+                }
+              })
+  }
 }
