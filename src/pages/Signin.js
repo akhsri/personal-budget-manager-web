@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { signin } from "../actions/signinAction";
 import SignupPageImage from "../assets/signup.png";
 import * as signinActions from "../actions/signinAction";
@@ -14,9 +14,16 @@ const Signin = (props) => {
   const [showEmailError, setshowEmailError] = useState(false);
   const [showPasswordError, setshowPasswordError] = useState("");
 
-  const { signin } = props;
+  const { signin , isAuthenticated} = props;
   const history = useHistory();
   console.log("history in signin: ", history);
+
+  useEffect(() => {
+    console.log("Inside Use Effect #")
+    if(isAuthenticated){
+      history.push("/app");
+    }
+  }, [isAuthenticated])
   const signIn = (event) => {
     event.preventDefault();
     const userCredentials = {
@@ -26,6 +33,7 @@ const Signin = (props) => {
     console.log("history in signin functnL ", history);
     console.log("userCredentials: ", userCredentials);
     signin(userCredentials, history);
+    console.log("Signin OVER")
   };
   return (
     <div>
@@ -101,6 +109,12 @@ const Signin = (props) => {
   );
 };
 
+const mapStateToProps = (state) => {
+  return{
+    isAuthenticated: state.userSignin.isAuthUser
+  }
+}
+
 const mapDispatchToProps = (dispatch) => {
   return {
     signin: (userCredentials, history) => {
@@ -109,4 +123,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(Signin);
+export default connect(mapStateToProps, mapDispatchToProps)(Signin);
