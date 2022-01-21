@@ -13,11 +13,9 @@ export default function bankAccountsReducer(
       };
 
     case "UPDATE_MONEY_TRANSACTION_LIST":
-      state.moneyTransactionList.push(action.payload);
-      console.log("updated moneyTransactionList: ", state.moneyTransactionList);
       return {
         ...state,
-        moneyTransactionList: state.moneyTransactionList,
+        moneyTransactionList: [...state.moneyTransactionList, action.payload],
       };
 
     case "GET_MONTHLY_OVERVIEW":
