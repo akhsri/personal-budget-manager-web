@@ -148,50 +148,7 @@ const SideNav = (props) => {
             </ListItemIcon>
             <ListItemText primary="Home" />
           </ListItem>
-          <ListItem
-            button
-            className={`py-4 ${
-              history.location.pathname === "/stats"
-                ? clsx(classes.navBorder)
-                : ""
-            }`}
-            onClick={() => history.push("/stats")}
-          >
-            <ListItemIcon>
-              <span
-                className={`material-icons pl-2 ${
-                  history.location.pathname === "/stats"
-                    ? clsx(classes.navColor)
-                    : ""
-                }`}
-              >
-                analytics
-              </span>
-            </ListItemIcon>
-            <ListItemText primary="Stats" />
-          </ListItem>
-          <ListItem
-            button
-            className={`py-4 ${
-              history.location.pathname === "/settings"
-                ? clsx(classes.navBorder)
-                : ""
-            }`}
-            onClick={() => history.push("/settings")}
-          >
-            <ListItemIcon>
-              <span
-                class={`material-icons pl-2 ${
-                  history.location.pathname === "/settings"
-                    ? clsx(classes.navColor)
-                    : ""
-                }`}
-              >
-                settings
-              </span>
-            </ListItemIcon>
-            <ListItemText primary="Settings" />
-          </ListItem>
+          
           <ListItem
             button
             className={`py-4 ${

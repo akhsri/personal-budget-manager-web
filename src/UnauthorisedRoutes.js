@@ -14,7 +14,7 @@ const Routes = () => {
     <div>
       {isUserLoggedIn ? null : <Navbar />}
       <Switch>
-        <Route exact path="/" render={(props) => <LandingPage />} />
+        <Route exact path="/" render={(props) => <Signin />} />
         <Route exact from="/signup" render={(props) => <Signup />} />
         <Route exact from="/signin" render={(props) => <Signin />} />
       </Switch>

@@ -36,11 +36,6 @@ export default function ButtonAppBar() {
         <AppBar position="static">
           <Toolbar>
             <div style={{ marginLeft: "auto" }}>
-              <Link to="/">
-                <Button color="inherit" className="btn">
-                  Home
-                </Button>
-              </Link>
             </div>
             <Link to="/signin">
               <Button color="inherit" className="btn">
