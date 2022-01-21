@@ -15,7 +15,6 @@ export default function signinReducer(
       const history = action.history;
       console.log("action: ", action);
       console.log("history in reducer: ", history);
-      history.push("/app");
       return {
         ...state,
         isAuthUser: true,
