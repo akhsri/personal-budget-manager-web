@@ -13,13 +13,13 @@ const Signin = (props) => {
   const [showEmailError, setshowEmailError] = useState(false);
   const [showPasswordError, setshowPasswordError] = useState("");
 
-  const { signin , isAuthenticated} = props;
+  const { signin, isAuthenticated } = props;
   const history = useHistory();
   useEffect(() => {
-    if(isAuthenticated){
+    if (isAuthenticated) {
       history.push("/app");
     }
-  }, [isAuthenticated])
+  }, [isAuthenticated]);
   const signIn = (event) => {
     event.preventDefault();
     const userCredentials = {
@@ -39,7 +39,18 @@ const Signin = (props) => {
           <div className="row signin-page-container">
             <div className="col-6 signin-form-col">
               <div className="signin-form-container">
-                <div className="signin-form" style={{ margin: "0 auto" }}>
+                <div className="signin-form" style={{ margin: "0 20%" }}>
+                  <div
+                    style={{
+                      maxWidth: "100%",
+                    }}
+                  >
+                    <h2>TrackB lets you track and analyze your money.</h2>
+                    <p>
+                      Track and analyze your income and expenditure with TrackB,
+                      save more and grow.
+                    </p>
+                  </div>
                   <div className="signin-header mb-3">
                     <h3>Signin</h3>
                     <label>
@@ -102,10 +113,10 @@ const Signin = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  return{
-    isAuthenticated: state.userSignin.isAuthUser
-  }
-}
+  return {
+    isAuthenticated: state.userSignin.isAuthUser,
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {

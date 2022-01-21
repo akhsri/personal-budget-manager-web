@@ -45,7 +45,18 @@ const Signup = (props) => {
                 signUp(event);
               }}
             >
-              <div className="signup-form" style={{ margin: "0 auto" }}>
+              <div className="signup-form" style={{ margin: "0 18%" }}>
+              <div
+                    style={{
+                      maxWidth: "100%",
+                    }}
+                  >
+                    <h2>TrackB lets you track and analyze your money.</h2>
+                    <p>
+                      Track and analyze your income and expenditure with TrackB,
+                      save more and grow.
+                    </p>
+                  </div>
                 <div className="signup-header mb-3">
                   <h3>Signup</h3>
                   <label>
