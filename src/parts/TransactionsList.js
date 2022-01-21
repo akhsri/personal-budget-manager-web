@@ -52,11 +52,9 @@ const TransactionsList = (props) => {
   
   console.log("changedList: ", moneyTransactionList)
   useEffect(() => {
+    console.log("USE EFFECT 1 called##")
     getMoneyTransactions();
-    if(moneyTransactionList){
-      setTransactionsList(moneyTransactionList)
-    }
-  }, [ getMoneyTransactions, moneyTransactionList.length]);
+  }, [])
   return (
     <div className={classes.root} style={{ minHeight: "100%" }}>
       <div className={classes.demo} style={{ minHeight: "100%" }}>
@@ -97,6 +95,7 @@ const TransactionsList = (props) => {
 };
 
 const mapStateToProps = (state) => {
+  console.log("state.moneyTransactionList: ", state.transactions.moneyTransactionList);
   return {
     moneyTransactionList: state.transactions.moneyTransactionList,
   };
