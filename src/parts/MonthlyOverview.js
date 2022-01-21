@@ -8,7 +8,6 @@ import { connect } from "react-redux";
 class MonthlyOverview extends Component {
   constructor(props) {
     super(props);
-    console.log("props in constructor: ", props);
     this.state = {
       isCreateBudgetModalOpen: false,
       monthlyOverview: props.monthlyOverview
@@ -17,7 +16,6 @@ class MonthlyOverview extends Component {
 
 
   handleCreateBudgetModal = () => {
-    console.log("handleCreateBudgetModal called");
     this.setState({
       isCreateBudgetModalOpen: !this.state.isCreateBudgetModalOpen,
     });
@@ -25,10 +23,6 @@ class MonthlyOverview extends Component {
 
   render() {
     const { monthlyOverview } = this.props;
-    console.log("monthlyOverview: ", monthlyOverview);
-    // const { totalMonthlyExpense, totalMonthlyIncome, expensesByCategory } =
-    //   monthlyOverview;
-    // const netIE = Math.abs(totalMonthlyExpense - totalMonthlyIncome);
     const data = {
       datasets: [
         {

@@ -23,7 +23,6 @@ export function updateCategoriesList(category) {
 }
 
 export function createCategory(categoryDetails, handleClose) {
-  console.log("categoryDetails: ", categoryDetails);
   const URL = API.BASE_PATH + API.CREATE_CATEGORY;
   const token = localStorage.getItem("token");
   const config = {

@@ -2,7 +2,6 @@ import axios from "axios";
 import { ACTION_TYPES, API } from "../utils/consts";
 
 export function updateAuthStatus(token, history) {
-  console.log("history: ", history);
   return {
     type: ACTION_TYPES.UPDATE_AUTH_STATUS,
     payload: token,

@@ -40,8 +40,6 @@ const useStyles = makeStyles((theme) => ({
 const AddTransactionModalContent = (props) => {
   const { activeStep } = props;
   const classes = useStyles();
-  console.log("activeStep: ", activeStep);
-
   const [selectedValue, setSelectedValue] = React.useState("Groceries");
 
   const handleChange = (event) => {

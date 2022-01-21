@@ -4,13 +4,11 @@ import * as TransactionActions from "../actions/transactionsAction";
 import { connect } from "react-redux";
 class ExpenseByCategory extends Component {
   constructor(props) {
-    console.log("props in expensesByCat ", props);
     super(props);
   }
 
   render() {
     const { monthlyOverview } = this.props;
-    console.log("monthlyOverview: ", monthlyOverview);
 
     const data = {
       labels: ["Used", "Unused"],

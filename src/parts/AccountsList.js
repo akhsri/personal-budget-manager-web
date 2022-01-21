@@ -38,7 +38,7 @@ const AccountsList = (props) => {
   const handleClose = () => {
     setOpen(false);
   };
-  console.log("bankAccountsList: ", bankAccountsList);
+  
   return (
     <div>
       <h6>ACCOUNTS</h6>
@@ -74,7 +74,7 @@ const AccountsList = (props) => {
           <form
             onSubmit={(event) => {
               event.preventDefault();
-              console.log("event in account list: ", event);
+              
               const bankAccountDetails = {
                 accountName: bankName,
                 starterAmount: parseInt(starterAmount),

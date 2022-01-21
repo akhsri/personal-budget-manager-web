@@ -50,7 +50,6 @@ const AddTransactionModal = (props) => {
   const [transactionDate, setTransactionDate] = useState(new Date());
   const [categoryId, setCategoryId] = useState("");
 
-  console.log("transaction type: ", transactionType);
 
   const transactionFormData = {
     moneyTransactionType: transactionType,
@@ -69,7 +68,6 @@ const AddTransactionModal = (props) => {
     setCategoryId,
   };
 
-  console.log("transaction date: ", moment(transactionDate).toISOString());
 
   return (
     <div>

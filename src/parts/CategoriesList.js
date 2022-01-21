@@ -74,7 +74,6 @@ const CategoriesList = (props) => {
           <form
             onSubmit={(event) => {
               event.preventDefault();
-              console.log("event in account list: ", event);
               const categoryDetails = {
                 categoryName: categoryName,
               };

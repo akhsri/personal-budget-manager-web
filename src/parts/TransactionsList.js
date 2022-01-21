@@ -50,9 +50,9 @@ const TransactionsList = (props) => {
  
   const { moneyTransactionList, getMoneyTransactions } = props;
   
-  console.log("changedList: ", moneyTransactionList)
+  
   useEffect(() => {
-    console.log("USE EFFECT 1 called##")
+    
     getMoneyTransactions();
   }, [])
   return (
@@ -95,7 +95,7 @@ const TransactionsList = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log("state.moneyTransactionList: ", state.transactions.moneyTransactionList);
+  
   return {
     moneyTransactionList: state.transactions.moneyTransactionList,
   };

@@ -6,7 +6,6 @@ export default function bankAccountsReducer(
 ) {
   switch (action.type) {
     case "GET_MONEY_TRANSACTION_LIST":
-      console.log("getMoneyTransactions")
       return {
         ...state,
         moneyTransactionList: action.payload,

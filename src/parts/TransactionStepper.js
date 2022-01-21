@@ -199,7 +199,6 @@ function getSteps() {
 }
 
 function getStepContent(step) {
-  console.log("step: ", step);
   switch (step) {
     case 0:
       return <AddTransactionModalContent activeStep={step} />;

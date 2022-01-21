@@ -8,7 +8,6 @@ import { useHistory } from "react-router-dom";
 import "../styles/Signin.css";
 
 const Signin = (props) => {
-  console.log("props: ", props);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showEmailError, setshowEmailError] = useState(false);
@@ -16,10 +15,7 @@ const Signin = (props) => {
 
   const { signin , isAuthenticated} = props;
   const history = useHistory();
-  console.log("history in signin: ", history);
-
   useEffect(() => {
-    console.log("Inside Use Effect #")
     if(isAuthenticated){
       history.push("/app");
     }
@@ -30,17 +26,13 @@ const Signin = (props) => {
       email: email,
       password: password,
     };
-    console.log("history in signin functnL ", history);
-    console.log("userCredentials: ", userCredentials);
     signin(userCredentials, history);
-    console.log("Signin OVER")
   };
   return (
     <div>
       <div>
         <form
           onSubmit={(event) => {
-            console.log("event: ", event);
             signIn(event);
           }}
         >

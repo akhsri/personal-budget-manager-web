@@ -16,8 +16,6 @@ const Signup = (props) => {
   const [showEmailError, setshowEmailError] = useState(false);
   const [showPasswordError, setshowPasswordError] = useState("");
 
-  //console.log("email: ", email);
-  //console.log("props: ", props);
   const { userSignUpStatus } = props;
   const signUp = (event) => {
     const { signup } = props;
@@ -28,15 +26,11 @@ const Signup = (props) => {
       email: email,
       password: password,
     };
-    console.log("userCredentials: ", userCredentials);
     signup(userCredentials)
       .then((res) => {
-        console.log("res: ", res);
-        console.log("user created");
         toastr.success("User created");
       })
       .catch((err) => {
-        console.log("err occured");
         toast.error("Error occured");
         toastr.error("error occured");
       });
@@ -146,7 +140,6 @@ const Signup = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log("state: ", state);
   return {
     userSignUpStatus: state.userSignup.signupStatus,
   };

@@ -43,7 +43,6 @@ export function createMoneyTransaction(
   return function (dispatch) {
     return axios.post(URL, data, config).then((response) => {
       if (response) {
-        console.log("response: ", response);
         if (response.status === 201) {
           const {
             handleClose,
@@ -65,7 +64,6 @@ export function createMoneyTransaction(
 }
 
 export function getMoneyTransactions() {
-  console.log("getMoneyTransactions called")
   const URL = API.BASE_PATH + API.GET_MONEY_TRANSACTION_LIST;
   const token = localStorage.getItem("token");
   const config = {
@@ -75,9 +73,7 @@ export function getMoneyTransactions() {
     return axios
       .get(URL, config)
       .then((response) => {
-        console.log("response before if")
         if (response.status === 200) {
-          console.log("response transactions: ", response)
           dispatch(getMoneyTransactionList(response.data));
         }
       })
@@ -90,7 +86,6 @@ export function getMoneyTransactions() {
 }
 
 export function fetchMonthlyOverview(){
-  console.log("fetchMonthlyOverview called ")
   const URL = API.BASE_PATH + API.GET_MONTHLY_OVERVIEW;
   const token = localStorage.getItem("token");
   const config = {
@@ -101,7 +96,6 @@ export function fetchMonthlyOverview(){
               .get(URL, config)
               .then((response) => {
                 if (response.status === 200) {
-                  console.log("monthlyOverview in fetchOverview: ", response)
                   dispatch(getMonthlyOverview(response.data))
                 }
               })

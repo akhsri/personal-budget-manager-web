@@ -55,9 +55,6 @@ const CreateBudgetModal = (props) => {
     setCategoryId,
     handleOpenCloseBudgetModal,
   };
-  console.log("categoriesList: ", categoriesList);
-  console.log("isCreateBudgetModalOpen: ", isCreateBudgetModalOpen);
-  console.log("Budget date: ", budgetDate);
   return (
     <div>
       <Modal
@@ -69,8 +66,6 @@ const CreateBudgetModal = (props) => {
         <form
           onSubmit={(event) => {
             event.preventDefault();
-            console.log("budgetData: ", budgetData);
-            console.log("year: ", moment(budgetDate).format("YYYY"));
             addBudget(budgetData, handleCreateBudgetModal);
           }}
         >

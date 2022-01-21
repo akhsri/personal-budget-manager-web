@@ -89,7 +89,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const SideNav = (props) => {
-  console.log("props: ", props);
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -102,7 +101,6 @@ const SideNav = (props) => {
     setOpen(false);
   };
   const { history } = props;
-  console.log("history: ", history);
   return (
     <div className={classes.root}>
       <CssBaseline />

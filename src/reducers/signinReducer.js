@@ -7,14 +7,10 @@ export default function signinReducer(
   },
   action
 ) {
-  console.log("SIGNIN REDUCER CALLED");
   switch (action.type) {
     case "UPDATE_AUTH_STATUS":
-      console.log("inside reducer");
       localStorage.setItem("token", action.payload);
       const history = action.history;
-      console.log("action: ", action);
-      console.log("history in reducer: ", history);
       return {
         ...state,
         isAuthUser: true,
