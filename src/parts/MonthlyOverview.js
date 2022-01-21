@@ -14,6 +14,10 @@ class MonthlyOverview extends Component {
     };
   }
 
+  shouldComponentUpdate(nextProps, nextState){
+    return this.props.monthlyOverview == nextProps.monthlyOverview
+  }
+
 
   handleCreateBudgetModal = () => {
     this.setState({
@@ -23,6 +27,14 @@ class MonthlyOverview extends Component {
 
   render() {
     const { monthlyOverview } = this.props;
+    let totalMonthlyExpense, totalMonthlyIncome;
+    if(monthlyOverview){
+      totalMonthlyExpense = monthlyOverview.totalMonthlyExpense;
+      totalMonthlyIncome = monthlyOverview.totalMonthlyIncome;
+    }
+
+
+     const netIE = Math.abs(totalMonthlyExpense - totalMonthlyIncome);
     const data = {
       datasets: [
         {
@@ -76,21 +88,23 @@ class MonthlyOverview extends Component {
                   <div className="card p-3">
                   <div className="d-flex flex-row justify-content-around">
                     <div className="flex-column">
-                      <div>Income</div>
+                      <div className="font-weight-bold">Income</div>
                       <div>{monthlyOverview.totalMonthlyIncome}</div>
                     </div>
                     <div className="flex-column">
-                      <div>Expense</div>
+                      <div className="font-weight-bold">Expense</div>
                       <div>{monthlyOverview.totalMonthlyExpense}</div>
                     </div>
                   </div>
                   <div className="dropdown-divider mx-3"></div>
                   <div className="d-flex flex-row justify-content-around">
                     <div className="flex-column">
-                      <div>I&E</div>
+                      <div className="font-weight-bold">I&E</div>
                     </div>
                     <div className="flex-column">
-                      {/* <div>{totalMonthlyIncome > totalMonthlyIncome ? `+${netIE}` : `-${netIE}`}</div> */}
+                      <div className={`${totalMonthlyIncome > totalMonthlyExpense ? "text-success" : "text-danger"} font-weight-bold`}>
+                        {totalMonthlyIncome > totalMonthlyExpense ? `+${netIE}` : `-${netIE}`}
+                      </div>
                     </div>
                   </div>
                 </div>

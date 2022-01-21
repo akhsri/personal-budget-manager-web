@@ -10,17 +10,6 @@ class ExpenseByCategory extends Component {
   render() {
     const { monthlyOverview } = this.props;
 
-    const data = {
-      labels: ["Used", "Unused"],
-      datasets: [
-        {
-          label: "My First Dataset",
-          data: [3000, 24276],
-          backgroundColor: ["orange", "lightorange"],
-          hoverOffset: 1,
-        },
-      ],
-    };
     const options = {
       legend: {
         display: false,
@@ -65,7 +54,7 @@ class ExpenseByCategory extends Component {
                     {
                       label: "My First Dataset",
                       data: [`${budgetPercentageUsed}`, `${budgetPercentageLeft}`],
-                      backgroundColor: ["orange", "lightorange"],
+                      backgroundColor: ["#0000FF", "#FF5733"],
                       hoverOffset: 1,
                     },
                   ]

@@ -6,36 +6,20 @@ import { connect } from "react-redux";
 
 const ExpensesOverviewWrapper = (props) => {
   const { fetchMonthlyOverview, monthlyOverview, moneyTransactionList } = props;
-  const [monthlyExpensesOverview, setMonthlyExpensesOverview] = useState({
-    expensesByCategory: [],
-    totalMonthlyExpense: 0,
-    totalMonthlyIncome: 0,
-  });
+ 
   useEffect(() => {
-    props.fetchMonthlyOverview();
-    if (monthlyOverview) {
-      setMonthlyExpensesOverview({
-        expensesByCategory: monthlyOverview.expensesByCategory,
-        totalMonthlyExpense: monthlyOverview.totalMonthlyExpense,
-        totalMonthlyIncome: monthlyOverview.totalMonthlyIncome,
-      });
-    }
-  }, [
-    monthlyExpensesOverview.expensesByCategory.length,
-    monthlyExpensesOverview.totalMonthlyExpense,
-    monthlyExpensesOverview.totalMonthlyIncome,
-    moneyTransactionList
-  ]);
+    fetchMonthlyOverview();
+  }, []);
+
+  console.log("monthlyOverview: ", monthlyOverview);
 
   return (
     <div>
-      <MonthlyOverview monthlyOverview={monthlyExpensesOverview} />
-      <ExpenseByCategory monthlyOverview={monthlyExpensesOverview} />
+      <MonthlyOverview monthlyOverview={monthlyOverview} />
+      <ExpenseByCategory monthlyOverview={monthlyOverview} />
     </div>
   );
 };
-
-
 
 const mapStateToProps = (state) => {
   return {
