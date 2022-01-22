@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert from "@mui/material/Alert";
 import * as signupActions from "../actions/signupAction";
 
 import SignupPageImage from "../assets/signup.png";
@@ -8,6 +10,10 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { toastr } from "react-redux-toastr";
 
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
+
 const Signup = (props) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -15,8 +21,19 @@ const Signup = (props) => {
   const [password, setPassword] = useState("");
   const [showEmailError, setshowEmailError] = useState(false);
   const [showPasswordError, setshowPasswordError] = useState("");
+  const [open, setOpen] = useState(false);
 
   const { userSignUpStatus } = props;
+
+  useEffect(() => {
+    setFirstName("");
+    setLastName("");
+    setEmail("");
+    setPassword("");
+    if(userSignUpStatus){
+      setOpen(true);
+    }
+  }, [userSignUpStatus]);
   const signUp = (event) => {
     const { signup } = props;
     event.preventDefault();
@@ -35,6 +52,14 @@ const Signup = (props) => {
         toastr.error("error occured");
       });
   };
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
+  };
   return (
     <div>
       <div className="row singup-page-container">
@@ -46,17 +71,17 @@ const Signup = (props) => {
               }}
             >
               <div className="signup-form" style={{ margin: "0 18%" }}>
-              <div
-                    style={{
-                      maxWidth: "100%",
-                    }}
-                  >
-                    <h2>TrackB lets you track and analyze your money.</h2>
-                    <p>
-                      Track and analyze your income and expenditure with TrackB,
-                      save more and grow.
-                    </p>
-                  </div>
+                <div
+                  style={{
+                    maxWidth: "100%",
+                  }}
+                >
+                  <h2>TrackB lets you track and analyze your money.</h2>
+                  <p>
+                    Track and analyze your income and expenditure with TrackB,
+                    save more and grow.
+                  </p>
+                </div>
                 <div className="signup-header mb-3">
                   <h3>Signup</h3>
                   <label>
@@ -126,9 +151,11 @@ const Signup = (props) => {
                   </button>
                 </div>
                 <div>
-                  {userSignUpStatus && (
-                    <label>Signup Succesful. You may signin now.</label>
-                  )}
+                    <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+                    <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+                      Signup successfull, you may login now!
+                    </Alert>
+                  </Snackbar>
                 </div>
                 <div className="alternate-signin">
                   <label>
