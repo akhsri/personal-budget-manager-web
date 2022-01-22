@@ -11,13 +11,16 @@ class Home extends Component {
     return (
       <div>
         <div className="row">
-          <div className="col-3" style={{
+          <div
+            className="col-3"
+            style={{
               backgroundColor: "lightgray",
               padding: "50px 0 0 50px",
-            }}>
-            <div style={{position: "fixed"}} >
-            {/* <AccountsList /> */}
-            <CategoriesList />
+            }}
+          >
+            <div style={{ position: "fixed" }}>
+              {/* <AccountsList /> */}
+              <CategoriesList />
             </div>
           </div>
           <div
@@ -25,7 +28,7 @@ class Home extends Component {
             style={{
               backgroundColor: "white",
               minHeight: "100vh",
-              padding: "50px 40px"
+              padding: "50px 40px",
             }}
           >
             <Transactions />
@@ -34,14 +37,16 @@ class Home extends Component {
             className="col-3"
             style={{
               backgroundColor: "white",
-              padding: "50px 50px 0 0"
+              padding: "50px 50px 0 0",
             }}
           >
-            <div style={{
-              position: "fixed",
-              width: "20%"
-            }}>
-            <ExpensesOverviewWrapper/>
+            <div
+              style={{
+                position: "fixed",
+                width: "20%",
+              }}
+            >
+              <ExpensesOverviewWrapper />
             </div>
           </div>
         </div>
