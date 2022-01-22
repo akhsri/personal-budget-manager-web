@@ -15,7 +15,7 @@ class Home extends Component {
               backgroundColor: "lightgray",
               padding: "50px 0 0 50px",
             }}>
-            <div >
+            <div style={{position: "fixed"}} >
             {/* <AccountsList /> */}
             <CategoriesList />
             </div>
@@ -37,7 +37,12 @@ class Home extends Component {
               padding: "50px 50px 0 0"
             }}
           >
+            <div style={{
+              position: "fixed",
+              width: "20%"
+            }}>
             <ExpensesOverviewWrapper/>
+            </div>
           </div>
         </div>
       </div>

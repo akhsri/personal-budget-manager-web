@@ -17,7 +17,7 @@ class ExpenseByCategory extends Component {
     };
     return (
       <div>
-        <h5 className="my-3">Expenses By Category</h5>
+        <h5 className="mt-5 mb-3">Expenses By Category</h5>
 
         <div>
           {monthlyOverview &&
@@ -65,7 +65,10 @@ class ExpenseByCategory extends Component {
               <p className="mb-1">{categoryName}</p>
               <h6>${totalExpense}</h6>
             </span>
-            <span className="pl-5">
+            <span className="pl-5" style={{
+              position: "absolute",
+              right: "5%"
+            }}>
               <p>{budgetPercentageUsed}%</p>
             </span>
           </div>
