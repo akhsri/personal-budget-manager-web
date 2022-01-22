@@ -7,6 +7,7 @@ export const API = {
   CREATE_CATEGORY: "/category/create",
   GET_CATEGORIES: "/category",
   CREATE_BUDGET: "/budget/create",
+  GET_BUDGETS: "/budget",
   CREATE_MONEY_TRANSACTION: "/money-transaction/create",
   GET_MONEY_TRANSACTION_LIST: "/money-transaction",
   GET_MONTHLY_OVERVIEW: "/money-transaction/monthly-overview"

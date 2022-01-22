@@ -5,6 +5,7 @@ import Transactions from "../components/Transactions";
 import ExpenseByCategory from "../components/ExpenseByCategory";
 import MonthlyOverview from "../parts/MonthlyOverview";
 import ExpensesOverviewWrapper from "../parts/ExpensesOverviewWrapper";
+import BudgetList from "../parts/BudgetList";
 
 class Home extends Component {
   render() {
@@ -21,6 +22,7 @@ class Home extends Component {
             <div style={{ position: "fixed" }}>
               {/* <AccountsList /> */}
               <CategoriesList />
+              <BudgetList/>
             </div>
           </div>
           <div

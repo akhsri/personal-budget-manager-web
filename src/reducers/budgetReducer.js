@@ -12,10 +12,9 @@ export default function budgetReducer(
       };
 
     case "UPDATE_BUDGET_LIST":
-      state.budgetList.push(action.payload);
       return {
         ...state,
-        budgetList: state.budgetList,
+        budgetList: [...state.budgetList, action.payload],
       };
     default:
       return state;
