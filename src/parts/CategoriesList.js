@@ -37,6 +37,7 @@ const CategoriesList = (props) => {
 
   const handleClose = () => {
     setOpen(false);
+    setCategoryName("")
   };
 
   return (
