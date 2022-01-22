@@ -16,7 +16,7 @@ class Home extends Component {
               padding: "50px 0 0 50px",
             }}>
             <div >
-            <AccountsList />
+            {/* <AccountsList /> */}
             <CategoriesList />
             </div>
           </div>
