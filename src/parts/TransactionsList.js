@@ -4,21 +4,13 @@ import Paper from "@mui/material/Paper";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import ListItemText from "@material-ui/core/ListItemText";
 import Avatar from "@material-ui/core/Avatar";
-import IconButton from "@material-ui/core/IconButton";
-import FormGroup from "@material-ui/core/FormGroup";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
-import FolderIcon from "@material-ui/icons/Folder";
 import Divider from "@material-ui/core/Divider";
-import DeleteIcon from "@material-ui/icons/Delete";
 import { connect } from "react-redux";
 import * as TransactionActions from "../actions/transactionsAction";
+import moment from 'moment';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -61,24 +53,27 @@ const TransactionsList = (props) => {
           <List dense={dense} sx={{ minHeight: "100%" }}>
             {moneyTransactionList ? (
               moneyTransactionList.map((transaction) => {
+                console.log("transaction: ", transaction)
+                let name = transaction.moneyTransactionType === "EXPENSE"
+                ? transaction.payee
+                : transaction.payer
+                let date = moment(transaction.occuredAt).format("dddd, MMMM Do YYYY, h:mm:ss a")
                 return (
                   <Fragment key={transaction.id}>
                     <ListItem>
                       <ListItemAvatar>
                         <Avatar>
-                          <FolderIcon />
+                          {`${name[0]}`}
                         </Avatar>
                       </ListItemAvatar>
                       <ListItemText
                         primary={
-                          transaction.moneyTransactionType === "EXPENSE"
-                            ? transaction.payee
-                            : transaction.payer
+                          name
                         }
-                        secondary={secondary ? "1 Dec 2020 11:36 AM" : null}
+                        secondary={secondary ? date : null}
                       />
                       <ListItemSecondaryAction>
-                        <ListItemText primary="$23.4" />
+                        <p className={`font-weight-bold ${transaction.moneyTransactionType == "EXPENSE" ? "text-danger" : "text-success"}`} >{`$${transaction.amount}`}</p>
                       </ListItemSecondaryAction>
                     </ListItem>
                     <Divider variant="inset" component="li" />
