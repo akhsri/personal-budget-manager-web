@@ -6,6 +6,7 @@ import ExpenseByCategory from "../components/ExpenseByCategory";
 import MonthlyOverview from "../parts/MonthlyOverview";
 import ExpensesOverviewWrapper from "../parts/ExpensesOverviewWrapper";
 import BudgetList from "../parts/BudgetList";
+import Signout from "../parts/Signout";
 
 class Home extends Component {
   render() {
@@ -23,6 +24,7 @@ class Home extends Component {
               {/* <AccountsList /> */}
               <CategoriesList />
               <BudgetList/>
+              <Signout/>
             </div>
           </div>
           <div
