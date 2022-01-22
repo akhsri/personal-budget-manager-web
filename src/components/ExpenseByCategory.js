@@ -19,7 +19,10 @@ class ExpenseByCategory extends Component {
       <div>
         <h5 className="mt-5 mb-3">Expenses By Category</h5>
 
-        <div>
+        <div style={{
+          overflowY: "scroll",
+          height: "40vh"
+        }}>
           {monthlyOverview &&
             monthlyOverview.expensesByCategory.map((expense) => {
               const {

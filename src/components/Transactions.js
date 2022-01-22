@@ -30,7 +30,7 @@ class Transactions extends Component {
             <AddTransaction />
           </span>
         </div>
-        <div>
+        {/* <div>
           <Autocomplete
             freeSolo
             id="free-solo-2-demo"
@@ -54,7 +54,7 @@ class Transactions extends Component {
               />
             )}
           />
-        </div>
+        </div> */}
         <div>
           <TransactionsList />
         </div>

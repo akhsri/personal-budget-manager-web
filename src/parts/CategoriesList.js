@@ -42,9 +42,12 @@ const CategoriesList = (props) => {
   return (
     <div>
       <h6>CATEGORIES</h6>
-      <div>
+      <div style={{
+        overflowY: "scroll",
+        height: "40vh"
+      }}>
         <ul>
-          {categoriesList ? (
+          {categoriesList && categoriesList.length > 0 ? (
             categoriesList.map((category) => {
               return (
                 <li key={category.id} className="my-3">
@@ -53,7 +56,7 @@ const CategoriesList = (props) => {
               );
             })
           ) : (
-            <h6>You haven't added any category!</h6>
+            <h6 className="text-center">You haven't added any category!</h6>
           )}
           <Button
             variant="contained"

@@ -51,7 +51,7 @@ const TransactionsList = (props) => {
     <div className={classes.root} style={{ minHeight: "100%" }}>
       <div className={classes.demo} style={{ minHeight: "100%" }}>
           <List dense={dense} sx={{ minHeight: "100%" }}>
-            {moneyTransactionList ? (
+            {moneyTransactionList && moneyTransactionList.length > 0 ? (
               moneyTransactionList.map((transaction) => {
                 console.log("transaction: ", transaction)
                 let name = transaction.moneyTransactionType === "EXPENSE"
@@ -81,7 +81,7 @@ const TransactionsList = (props) => {
                 );
               })
             ) : (
-              <h3>You don't have any transactions</h3>
+              <h6 className="text-center mt-5">You don't have any transactions</h6>
             )}
           </List>
       </div>

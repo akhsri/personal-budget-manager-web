@@ -9,7 +9,7 @@ const ExpensesOverviewWrapper = (props) => {
  
   useEffect(() => {
     fetchMonthlyOverview();
-  }, []);
+  }, [moneyTransactionList]);
 
   console.log("monthlyOverview: ", monthlyOverview);
 

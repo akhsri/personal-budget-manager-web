@@ -14,9 +14,9 @@ class MonthlyOverview extends Component {
     };
   }
 
-  shouldComponentUpdate(nextProps, nextState){
-    return this.props.monthlyOverview == nextProps.monthlyOverview
-  }
+  // shouldComponentUpdate(nextProps, nextState){
+  //   return this.props.monthlyOverview == nextProps.monthlyOverview
+  // }
 
 
   handleCreateBudgetModal = () => {

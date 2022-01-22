@@ -38,9 +38,12 @@ const BudgetsList = (props) => {
   return (
     <div>
       <h6>Budgets</h6>
-      <div>
+      <div style={{
+          overflowY: "scroll",
+          height: "30vh"
+      }}>
         <ul>
-          {budgetsList ? (
+          {budgetsList  && budgetsList.length > 0? (
             budgetsList.map((budget) => {
               return (
                 <li key={budget.id} className="my-3">
@@ -49,7 +52,7 @@ const BudgetsList = (props) => {
               );
             })
           ) : (
-            <h6>You haven't added any budget!</h6>
+            <h6 className="text-center">You haven't added any budget!</h6>
           )}
         </ul>
       </div>
